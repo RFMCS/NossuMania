@@ -1,0 +1,387 @@
+html,
+body {
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  position: relative;
+  background-size: cover;
+  background-image: url('/assets/images/nossu.png');
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.arrow-left {
+    /*border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 100px solid blue;  Change color as needed  */
+    background-image: url('/assets/images/LEFT-arrow-1.png'); 
+    position: absolute;  
+    height: 100px;
+    width: 100px;
+    background-size: contain;  /* Ensures that the image fits the size of the container */
+    background-position: center; /* Centers the image in the container */
+  
+
+  }
+
+.arrow-right {
+    background-image: url('/assets/images/RIGHT-arrow.png'); 
+    position: absolute;  
+    height: 100px;
+    width: 100px;
+    background-size: contain;  /* Ensures that the image fits the size of the container */
+    background-position: center; /* Centers the image in the container */
+  } 
+
+.arrow-bottom{
+    background-image: url('/assets/images/DOWN-arrow.png'); 
+    position: absolute;  
+    height: 100px;
+    width: 100px; 
+    background-size: contain;  /* Ensures that the image fits the size of the container */
+    background-position: center; /* Centers the image in the container */
+}
+
+.arrow-top{
+    background-image: url('/assets/images/UP-arrow-1.png'); 
+    position: absolute;  
+    height: 100px;
+    width: 100px; 
+    background-size: contain;  /* Ensures that the image fits the size of the container */
+    background-position: center; /* Centers the image in the container */
+}
+
+/* Center the game container */
+#game-container {
+    display: flex; /* Arrange divs horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Adjust width as needed */
+    height: 90%; /* Adjust height as needed */
+    background-color: transparent; /* Just for visibility */ /* Just for visibility */
+    overflow: hidden; /* Ensure arrows are clipped if they exceed container boundaries */
+  }
+
+  #game-container > div {
+    flex: 1; /* Each div occupies equal space */
+    display: flex;
+    justify-content: center; /* Center arrow shapes horizontally */ /* Just for visibility */
+  }
+
+#static-left {
+    align-self: flex-end;
+    height: 100px; /* Position static arrow at the bottom of the container */
+    width: 100%; /* Take up the full width of the container */
+}
+
+#static-right {
+    align-self: flex-end;
+    height: 100px; /* Position static arrow at the bottom of the container */
+    width: 100%; /* Take up the full width of the container */
+}
+
+#static-bottom {
+    align-self: flex-end;
+    height: 100px; /* Position static arrow at the bottom of the container */
+    width: 100%; /* Take up the full width of the container */
+    display: flex;
+}
+
+#static-top {
+    align-self: flex-end;
+    height: 100px; /* Position static arrow at the bottom of the container */
+    width: 100%;
+    display: flex; /* Take up the full width of the container */
+}
+
+.static-arrow {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  align-self: flex-start;
+  height: 100%;
+  width: 100%;
+  font-family: 'Honk', sans-serif;
+  font-size: 4em;
+}
+
+.combo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  margin-top: 300px;
+  
+}
+
+.combos {
+  padding: 30px;
+  border-radius: 20px;
+  position: fixed;
+}
+
+/* .maxCombo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  margin-top: 750px;
+  position: absolute;
+  top: 1%;
+}
+
+.maxCombos {
+ padding: 30px;
+  border-radius: 20px;
+  position: fixed; 
+} */
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  height: 100%;
+  width: 20%;
+  margin-top: 300px;
+}
+
+.scores {
+  padding: 30px;
+  border-radius: 20px;
+  position: fixed;
+}
+
+.life-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.life-progress {
+  height: 100%;
+  width: 50%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #39f206, #ffaf40);
+  transition: width 0.3s ease;
+}
+
+.song-name {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Honk', sans-serif;
+  font-size: 1em;
+  position: fixed;
+  bottom: 10px;
+}
+
+.button {
+  margin-top: 25px;
+  margin-left: 15px;
+  
+
+}
+
+@keyframes topAnimation {
+  from {
+      transform: translate(0rem, 0);
+  }
+  to {
+      transform: translate(0rem, 3.5rem);
+  }
+}
+
+@keyframes bottomAnimation {
+  from {
+      transform: translate(-11.5rem, 0);
+  }
+  to {
+      transform: translate(-7.5rem, 0);
+  }
+}
+
+.btnstart,
+.btnpause 
+{
+  text-decoration: none;
+  z-index: 999;
+  font-size: 2em;
+  border: 0;
+  position: absolute;
+  letter-spacing: 0.15em;
+  margin: auto;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  outline: none;
+  font-size: 24px;
+  border-radius: 4px;
+  font-family: "Honk", "sans-serif";
+  color: #111;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+}
+
+.btnstart::after,
+.btnstart::before,
+.btnpause::after,
+.btnpause::before
+{
+  border: 0;
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 10%;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -2;
+  border-radius: 50%;
+}
+
+.btnstart::before,
+.btnpause::before{
+  background-color: rgba(230, 129, 230, 1);
+  top: -0.75rem;
+  left: 0.5rem;
+  animation: topAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+}
+
+.btnstart::after,
+.btnpause::after{
+  background-color: rgba(230, 129, 230, 1);
+  top: 3rem;
+  left: 13rem;
+  animation: bottomAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s infinite alternate;
+}
+
+.btnstart:hover,
+.btnpause:hover {
+  color: white;
+}
+
+.btnstart:hover::before,
+.btnstart:hover::after,
+.btnpause:hover::before,
+.btnpause:hover::after {
+  
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: none;
+}
+
+.btnstart:hover::after,
+.btnpause:hover::after {
+  left: 0rem;
+}
+
+.btnstart:hover::before {
+  top: 0.5rem;
+  left: 0.35rem;
+}
+
+#pausebutton{
+  display:none;
+}
+
+
+.btnrestart{
+  text-decoration: none;
+  left: 200px;
+  z-index: 999;
+  font-weight: 700;
+  border: 0;
+  position: absolute;
+  letter-spacing: 0.15em;
+  margin: auto;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  outline: none;
+  font-size: 22px;
+  font-family: "Honk", "sans-serif";
+  color: #111;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+}
+
+.btnrestart::after,
+.btnrestart::before{
+  
+    border: 0;
+    content: "";
+    position: absolute;
+    height: 40%;
+    width: 10%;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -2;
+    border-radius: 50%;
+  }
+
+
+.btnrestart::before{
+  background-color: rgba(230, 129, 230, 1);
+  top: -0.75rem;
+  left: 0.5rem;
+  animation: topAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+}
+
+.btnrestart::after{
+  background-color: rgba(230, 129, 230, 1);
+  top: 3rem;
+  left: 13rem;
+  animation: bottomAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s infinite alternate;
+}
+
+
+.btnrestart:hover {
+  color: white;
+}
+
+.btnrestart:hover::before,
+.btnrestart:hover::after
+ {
+  
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: none;
+}
+
+.btnrestart:hover::after {
+  left: 0rem;
+}
+
+.btnrestart:hover::before {
+  top: 0.5rem;
+  left: 0.35rem;
+}

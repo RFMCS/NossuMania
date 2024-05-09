@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/images/brunomars-removebg-preview.png" />
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="left">
+            <div id="static-left">
+                <img class="static-arrow" src="assets/images/ELEFT-arrow-2.png" alt="left">
+            </div>
+        </div>
+        <div id="bottom">
+            <div id="static-bottom">
+                <img class="static-arrow" src="assets/images/EDOWN-arrow.png" alt="triangledown">
+            </div>
+        </div>
+        <div id="top">
+            <div id="static-top">
+                <img class="static-arrow" src="assets/images/EUP-arrow-1.png" alt="triangleup">
+            </div>
+        </div>
+        <div id="right">
+            <div id="static-right">
+                <img class="static-arrow" src="assets/images/ERIGHT-arrow.png" alt="triangleright">
+            </div>
+        </div>
+    </div>
+    <div class="life-bar">
+        <div class="life-progress"></div>
+    </div>
+    <div class="button">
+        <button type="button" id="startbutton" class="btnstart">Start</button>
+        <button type="button" id="pausebutton" class="btnpause">Pause</button>
+        <button type="button" id="restartbutton" class="btnrestart">Restart</button>
+    </div>
+
+    <div class="game-info">
+        <div class="combo">
+            <div class="combos" id="combo-display">Combo 0<span id="combo"></span></div>
+        </div>
+        <!-- <div class ="maxCombo">
+                <div class="maxCombos" id="maxcombo-display">Max Combo 0<span></span></div>
+            </div> -->
+        <div class="score">
+            <div class="scores" id="score-display"> Score 0<span id="score"></span></div>
+        </div>
+    </div>
+    <div class="song-name">Song-name: Bruno Mars Uptown Funk
+        <span id="song-name"></span>
+    </div>
+    </div>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>
